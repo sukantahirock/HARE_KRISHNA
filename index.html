@@ -13,11 +13,10 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Hind Siliguri & Noto Serif Bengali for crisp Bengali typography -->
+    <!-- Google Fonts: Noto Sans Bengali, Hind Siliguri & Noto Serif Bengali for crisp Bengali typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tone.js for pure Web Audio API chimes without external MP3 dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
@@ -27,8 +26,9 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Hind Siliguri"', 'sans-serif'],
+                        sans: ['"Noto Sans Bengali"', '"Hind Siliguri"', 'sans-serif'],
                         serif: ['"Noto Serif Bengali"', 'serif'],
+                        num: ['"Noto Sans Bengali"', 'sans-serif'],
                     },
                     colors: {
                         sandalwood: {
@@ -122,20 +122,20 @@
 </head>
 <body class="text-sandalwood-900 min-h-screen flex flex-col justify-between antialiased">
 
-    <!-- Top Navigation Bar -->
-    <header class="w-full bg-white/85 backdrop-blur-md border-b border-sandalwood-200 sticky top-0 z-30 shadow-sm">
-        <div class="max-w-xl mx-auto px-4 py-3 flex items-center justify-between">
-            <!-- App Title & Tilak Icon -->
+            <!-- App Title & Lotus Bead Icon -->
             <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-saffron-500 to-amber-600 flex items-center justify-center text-white shadow-sm">
-                    <!-- Decorative Lotus / Tilak SVG -->
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C10.5 5.5 9.5 8.5 9.5 11.5C9.5 13.5 10.5 15 12 16C13.5 15 14.5 13.5 14.5 11.5C14.5 8.5 13.5 5.5 12 2ZM12 17.5C10.9 17.5 10 18.4 10 19.5C10 20.6 10.9 21.5 12 21.5C13.1 21.5 14 20.6 14 19.5C14 18.4 13.1 17.5 12 17.5Z"/>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-saffron-500 to-amber-600 flex items-center justify-center text-white shadow-sm shrink-0">
+                    <!-- Clean Custom SVG Lotus Icon -->
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3C9.8 6.5 9.2 9.8 12 14C14.8 9.8 14.2 6.5 12 3Z" fill="currentColor" fill-opacity="0.25"/>
+                        <path d="M12 14C8.5 12.2 5.2 12.5 3.5 15.5C6.8 17.5 10.2 16.8 12 14Z"/>
+                        <path d="M12 14C15.5 12.2 18.8 12.5 20.5 15.5C17.2 17.5 13.8 16.8 12 14Z"/>
+                        <path d="M6.5 17.5C8.5 19.2 10.5 19.8 12 19.8C13.5 19.8 15.5 19.2 17.5 17.5"/>
                     </svg>
                 </div>
                 <div>
                     <h1 class="font-serif font-bold text-lg sm:text-xl text-saffron-800 leading-tight">নাম জপ কাউন্টার</h1>
-                    <p class="text-[11px] text-sandalwood-600 font-medium tracking-wide">হরে কৃষ্ণ মহামন্ত্র • ১০৮ মহামন্ত্র</p>
+                    <p class="text-[11px] text-sandalwood-600 font-medium tracking-wide">হরে কৃষ্ণ মহামন্ত্র • ১০৮ </p>
                 </div>
             </div>
 
@@ -188,26 +188,26 @@
             <!-- Completed Malas Today -->
             <div class="bg-white border border-sandalwood-200 rounded-2xl p-3 text-center shadow-sm flex flex-col justify-center">
                 <span class="text-xs font-medium text-sandalwood-600">সম্পন্ন মালা</span>
-                <div class="mt-0.5 flex items-baseline justify-center gap-1">
-                    <span id="display-malas" class="text-2xl sm:text-3xl font-bold text-saffron-600">০</span>
-                    <span class="text-xs text-sandalwood-500 font-medium">/ <span id="display-target-inline">১৬</span></span>
+                <div class="mt-0.5 flex items-baseline justify-center gap-1 font-num">
+                    <span id="display-malas" class="text-2xl sm:text-3xl font-bold text-saffron-600 leading-none">০</span>
+                    <span class="text-sm sm:text-base text-sandalwood-600 font-bold leading-none">/ <span id="display-target-inline">১৬</span></span>
                 </div>
             </div>
 
             <!-- Current Bead Count -->
             <div class="bg-white border border-sandalwood-200 rounded-2xl p-3 text-center shadow-sm flex flex-col justify-center">
                 <span class="text-xs font-medium text-sandalwood-600">বর্তমান মালা</span>
-                <div class="mt-0.5 flex items-baseline justify-center gap-1">
-                    <span id="display-beads" class="text-2xl sm:text-3xl font-bold text-sandalwood-900">০</span>
-                    <span class="text-xs text-sandalwood-500 font-medium">/ ১০৮</span>
+                <div class="mt-0.5 flex items-baseline justify-center gap-1 font-num">
+                    <span id="display-beads" class="text-2xl sm:text-3xl font-bold text-sandalwood-900 leading-none">০</span>
+                    <span class="text-sm sm:text-base text-sandalwood-600 font-bold leading-none">/ ১০৮</span>
                 </div>
             </div>
 
             <!-- Total Chants Today -->
             <div class="bg-white border border-sandalwood-200 rounded-2xl p-3 text-center shadow-sm flex flex-col justify-center">
                 <span class="text-xs font-medium text-sandalwood-600">আজকের মোট জপ</span>
-                <div class="mt-0.5">
-                    <span id="display-today-total" class="text-2xl sm:text-3xl font-bold text-amber-700">০</span>
+                <div class="mt-0.5 font-num">
+                    <span id="display-today-total" class="text-2xl sm:text-3xl font-bold text-amber-700 leading-none">০</span>
                 </div>
             </div>
         </section>
